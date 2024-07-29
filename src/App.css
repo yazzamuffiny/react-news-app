@@ -18,3 +18,35 @@ footer {
   background-color: #1f1f1f;
   color: white;
 }
+
+.filter-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.filter-flex-container {
+  display: flex;
+  flex-direction: column;
+}
+
+
+.article-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2em;
+  padding: 20px;
+}
+
+.article {
+  border: 1px solid #1f1f1f1b;
+  -webkit-box-shadow: 13px 13px 25px -6px rgba(0,0,0,0.51);
+  -moz-box-shadow: 13px 13px 25px -6px rgba(0,0,0,0.51);
+  box-shadow: 13px 13px 25px -6px rgba(0,0,0,0.51);
+  padding: 10px;
+}
+
+.author {
+  padding-top: 5px;
+  font-style: italic;
+}
