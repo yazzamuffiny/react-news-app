@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import axios from "axios";
+import { useNavigate } from 'react-router-dom';
 
 import { useArticlesContext } from '../hooks/useArticlesContext';
 
@@ -12,9 +13,10 @@ const Home = () => {
   const [category, setCategory] = useState('');
   //state for loading
   const [loading, setLoading] = useState(true);
-
+  //initiate useNavigate
+  const navigate = useNavigate()
   //bring in state and dispatch
-  const {articles, dispatch} = useArticlesContext()
+  const {articles, dispatch} = useArticlesContext();
 
   //use effect 
   useEffect(() => {
@@ -49,6 +51,13 @@ const Home = () => {
         setCategory(newCategory);
     }
 
+  //function
+  const handleReadMoreClick = (index) => {
+    console.log(index)
+    navigate(`/article/${index}`)
+  }
+
+
   //mapped articles component
     const Articles = ({articles}) => {
       const mappedArticles = articles.map((article, index) => {
@@ -57,7 +66,7 @@ const Home = () => {
           <div key={index} className='article'>
             <h4>{article.title}</h4>
             <p className="author">{article.author}</p>
-    
+            <button onClick={() => handleReadMoreClick(index)} className="see-more">See More</button>
           </div>
         )
       })
